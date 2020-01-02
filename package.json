@@ -1,0 +1,10 @@
+{
+  "name": "hyeoktube",
+  "version": "1.0.0",
+  "description": "Cloning Youtube with VanillaJS and Node js",
+  "main": "index.js",
+  "author": "Hyeok",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
