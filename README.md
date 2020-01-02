@@ -13,3 +13,7 @@ package.json에 "dependencies": {
 "express": "^4.17.1"
 }
 가 있기 때문에 npm install만 해도 자동으로 package-lock.json 파일과 node_modules폴더가 생성된다.
+
+github에 파일 올릴때는 package-lock.json 파일과 node_modules폴더는 올리면 안되므로 .gitignore를 생성한 후
+.gitignore폴더 안에 node_modules와 package-lock.json를 타이핑 후 gitignore nodejs검색 사이트 들어가서 그 안에 있는
+문자 복사후 .gitignore안에 붙혀넣기 한다.
