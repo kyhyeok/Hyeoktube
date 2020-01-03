@@ -103,3 +103,11 @@ app.js에서 소스 맨 마지막에 export default app;을 하는 이유는 아
 default를 import할때는 import app default가 아닌 상태에서 import할때는 import {app}
 
 # -----------------------router 끝-----------------------
+
+# -----------------------mvc part 1 시작-----------------------
+
+M odel : data
+V iew : how does the data look
+C ontroller : function that look for the data
+
+# -----------------------mvc part 1 끝-----------------------
