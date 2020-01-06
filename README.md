@@ -164,6 +164,18 @@ fontawesome.com 접속 후 고유 스크립트를 신청하면 Kits에 본인 �
 
 # -----------------------fontawesome 끝-----------------------
 
-# ----------------------- info to Controller 시작-----------------------
+## Pages:
+ - [ ] Home
+ - [ ] Join
+ - [x] Login
+ - [ ] Search
+ - [ ] User Detail
+ - [ ] Edit Profile
+ - [ ] Change Password
+ - [ ] Upload
+ - [ ] Video Detail
+ - [ ] Edit Video
 
-# ----------------------- info to Controller 끝-----------------------
+# -----------------------login 시작-----------------------
+
+# -----------------------login 끝-----------------------
