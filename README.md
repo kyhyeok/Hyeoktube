@@ -145,4 +145,19 @@ h1 Hello pug를 이용한 html
 
 pug는 파이썬처럼 들여쓰기 스타일이다
 
+content는 main이 되는 pug에 block content를 하고 다른 페이지 맨 위에 extents 메인pug를 하면 된다
+
+ex) layouts폴더 안에main.put extents layouts/main
+
+partials은 include로 사용한다 component를 독립시키는 것 조직화 하는 것이 좋다
+
+#{}를 하면 자바스크립트 코드를 사용할 수 있다
+
 # -----------------------pug 끝-----------------------
+
+# -----------------------fontawesome 시작-----------------------
+
+fontawesome.com 접속 후 고유 스크립트를 신청하면 Kits에 본인 스크립트가 나온다
+그것을 html -> head 쪽에 입력하면 된다
+
+# -----------------------fontawesome 끝-----------------------
