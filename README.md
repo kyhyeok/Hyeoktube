@@ -166,9 +166,9 @@ fontawesome.com 접속 후 고유 스크립트를 신청하면 Kits에 본인 �
 
 ## Pages:
  - [ ] Home
- - [ ] Join
+ - [x] Join
  - [x] Login
- - [ ] Search
+ - [x] Search
  - [ ] User Detail
  - [ ] Edit Profile
  - [ ] Change Password
