@@ -165,17 +165,39 @@ fontawesome.com 접속 후 고유 스크립트를 신청하면 Kits에 본인 �
 # -----------------------fontawesome 끝-----------------------
 
 ## Pages:
- - [ ] Home
- - [x] Join
- - [x] Login
- - [x] Search
- - [ ] User Detail
- - [ ] Edit Profile
- - [ ] Change Password
- - [ ] Upload
- - [ ] Video Detail
- - [ ] Edit Video
 
-# -----------------------login 시작-----------------------
+- [ ] Home
+- [x] Join
+- [x] Login
+- [x] Search
+- [ ] User Detail
+- [ ] Edit Profile
+- [ ] Change Password
+- [ ] Upload
+- [ ] Video Detail
+- [ ] Edit Video
 
-# -----------------------login 끝-----------------------
+# -----------------------MongoDB 시작-----------------------
+
+MongoDB는 NoSQL이다 https://www.mongodb.com/
+
+https://www.mongodb.com/download-center/community 다운로드 url
+
+version, OS, package를 맞춰서 다운로드 한다
+
+ex(version은 current release가 가장 적합, OS는 사용하는 OS, Package는 윈도우의 경우 zip 말고 msi로) 2019-01-07 기준
+
+다운 받은 후 설치 설치 중간 중간 선택해야 되는 상황에서는 recommand되어 있는 걸로 하는게 좋다
+
+url = MongoDB를 설치하면 보통 C:\Program Files 설치가 되고 MongoDB\Server\4.2\bin까지 접속을 한 후
+폴더 url 복사 (4.2는 버전 다를 수 있다) 2020-01-07 기준
+
+환경설정 변수잡기 -> 내 PC - (마우스 오른쪽 클릭)속성 - 고급 시스템 설정 - 환경 변수 - 시스템 변수 - Path - 편집 - 새로 만들기 - url - 확인 후 환경설정 변수를 잡는다
+
+터미널에 mongod를 입력 실행 확인 후 다른 터미널에 mongo를 입력 확인 후 exit
+
+https://mongoosejs.com/ 는 몽고db를 js에서 사용할 수 있게 해주는 것
+
+npm install mongooes 몽고DB를 NodeJS에서 사용하기 위해 install
+
+# -----------------------MongoDB 끝-----------------------
