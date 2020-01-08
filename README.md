@@ -207,6 +207,37 @@ npm install mongooes 몽고DB를 NodeJS에서 사용하기 위해 install
 # -----------------------dotenv 시작-----------------------
 
 npm install dotenv
+
 DB연결시 공유하고 싶지 않은 정보들은 보안유지 해주는??
+import dotenv from "dotenv";
+
+dotenv.config();
+
+process.env.MONGO_URL
+
+process는 dotenv를 사용할 때 쓰는 것 같고
+env는 .env파일을 의미
+.MONGO_URL은 .env안에 있는 변수
+
+.gitignore에 .env가 있어서 github에 업로드는 안된다
+
+# -----------------------dotenv 끝-----------------------
+
+# -----------------------dotenv 시작-----------------------
+
+npm install dotenv
+
+DB연결시 공유하고 싶지 않은 정보들은 보안유지 해주는??
+import dotenv from "dotenv";
+
+dotenv.config();
+
+process.env.MONGO_URL
+
+process는 dotenv를 사용할 때 쓰는 것 같고
+env는 .env파일을 의미
+.MONGO_URL은 .env안에 있는 변수
+
+.gitignore에 .env가 있어서 github에 업로드는 안된다
 
 # -----------------------dotenv 끝-----------------------
