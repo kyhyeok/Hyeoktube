@@ -241,3 +241,17 @@ env는 .env파일을 의미
 .gitignore에 .env가 있어서 github에 업로드는 안된다
 
 # -----------------------dotenv 끝-----------------------
+
+# -----------------------multer 시작-----------------------
+
+npm install multer
+
+Multer는 파일 업로드를 위해 사용되는 multipart/form-data 를 다루기 위한 node.js 의 미들웨어
+
+효율성을 최대화 하기 위해 busboy 를 기반으로 하고 있다.
+
+(busboy는 나중에 알아보자 | 서버(홀에서 일하는 사람들) 도와주는게 busboy이긴한데 ;;;)
+
+Multer는 multipart (multipart/form-data)가 아닌 폼에서는 동작하지 않습니다.
+
+# -----------------------multer 끝-----------------------
