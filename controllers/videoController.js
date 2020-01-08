@@ -1,17 +1,17 @@
-import { videos } from "../db";
 import routes from "../routes";
-export const home = (req, res) => {
-  res.render("home", { pageTitle: "Home", videos });
+import Video from "../models/Video";
+
+export const home = async (req, res) => {
+  try {
+    const videos = await Video.find({});
+    res.render("home", { pageTitle: "Home", videos });
+  } catch (error) {
+    console.log(error);
+    res.render("home", { pageTitle: "Home", videos: [] });
+  }
 };
 
 export const search = (req, res) => {
-  //   const searchingBy = req.query.term;
-  // 밑에거랑 같다 밑에거는 ES6
-  //   const {
-  //     query: { term }
-  //   } = req;
-  //   const searchingBy = req.query.term;
-  //   res.render("search", { pageTitle: "Search", searchingBy : searchingBy });
   const {
     query: { term: searchingBy }
   } = req;
