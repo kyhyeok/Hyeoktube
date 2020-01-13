@@ -254,4 +254,8 @@ Multer는 파일 업로드를 위해 사용되는 multipart/form-data 를 다루
 
 Multer는 multipart (multipart/form-data)가 아닌 폼에서는 동작하지 않습니다.
 
+github에 동영상을 올리 생각이 없으므로 .gitignore에 uploads를 설정
+
+한 개의 서버에서 데이터베이스(특히 파일들)와 UI단??은 다르게 다뤄야 효율이 좋다
+
 # -----------------------multer 끝-----------------------
