@@ -293,3 +293,17 @@ rules: { "no-console": "off" } rules에 기능 추가를 할 수 있다
 install할것 전부 인스톨 이후 .eslintrc.js 파일 생성후 안에 코드를 직접 입력하는 방식도 있다
 
 # -----------------------eslint 끝-----------------------
+
+# -----------------------webpack 시작-----------------------
+
+npm install webpack webpack-cli
+
+webpack is working with file webpack-cli working with Terminal
+
+webpack.config.js 파일을 생성한다
+
+package.json에서 scripts쪽 수정한다
+
+start -> dev:server, dev:assets: webpack
+
+# -----------------------webpack 끝-----------------------
