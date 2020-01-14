@@ -306,4 +306,23 @@ package.json에서 scripts쪽 수정한다
 
 start -> dev:server, dev:assets: webpack
 
+npm install cross-env 설치 후 dev:assets WEBPACK앞에 cross-env를 붙혀준다.
+
+npm install extract-text-webpack-plugin@next
+
+@를 붙히면 원하는 버전으로 설치가 가능하다
+
+webpack.config.js에서 loader을 활용하기 위해서
+
+npm install css-loader postcss-loader sass-loader 설치한다
+
+npm install node-sass 설치한다
+
+autoprefixer을 사용하기 위해 npm install autoprefixer
+
+postcss.org나 browserslist에서 document같은 형식의 파일을 본다
+
+npm run dev:assets 지정한 폴더와 파일이 생긴다
+(package.json에 설정한 이름을 run한 것임)
+
 # -----------------------webpack 끝-----------------------
