@@ -325,4 +325,10 @@ postcss.org나 browserslist에서 document같은 형식의 파일을 본다
 npm run dev:assets 지정한 폴더와 파일이 생긴다
 (package.json에 설정한 이름을 run한 것임)
 
+npm install babel-loader
+
+npm install @babel/polyfill
+
+dev:assets 끝에 -w는 watch라는 뜻으로 -w하면 다 본다 뭐 이런기능???;;
+
 # -----------------------webpack 끝-----------------------
