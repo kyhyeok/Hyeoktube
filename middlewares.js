@@ -1,16 +1,13 @@
-import multer from "multer";
-import routes from "./routes";
+import multer from 'multer';
+import routes from './routes';
 
-const multerVideo = multer({ dest: "uploads/videos/" });
+const multerVideo = multer({ dest: 'uploads/videos/' });
 
 export const localsMiddleware = (req, res, next) => {
-  res.locals.siteName = "Hyeoktube";
+  res.locals.siteName = 'Hyeoktube';
   res.locals.routes = routes;
-  res.locals.user = {
-    isAuthenticated: false,
-    id: 1
-  };
+  res.locals.user = req.user || {};
   next();
 };
 
-export const uploadVideo = multerVideo.single("videoFile");
+export const uploadVideo = multerVideo.single('videoFile');

@@ -344,3 +344,7 @@ npm install passport-local-mongoose
 npm i passport passport-local
 
 # -----------------------PassportJS 끝-----------------------
+
+# -----------------------express session 시작-----------------------
+
+# -----------------------express session 끝-----------------------
