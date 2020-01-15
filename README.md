@@ -202,6 +202,8 @@ https://mongoosejs.com/ 는 몽고db를 js에서 사용할 수 있게 해주는 
 
 npm install mongooes 몽고DB를 NodeJS에서 사용하기 위해 install
 
+use hyeok-tube (내 데이터베이스 이름 | 본인이 확인하고 싶은 데이터베이스 명을 use + 입력해야한다.)
+
 # -----------------------MongoDB 끝-----------------------
 
 # -----------------------dotenv 시작-----------------------
@@ -332,3 +334,13 @@ npm install @babel/polyfill
 dev:assets 끝에 -w는 watch라는 뜻으로 -w하면 다 본다 뭐 이런기능???;;
 
 # -----------------------webpack 끝-----------------------
+
+# -----------------------PassportJS 시작-----------------------
+
+authentication middleware for Node.js
+
+npm install passport-local-mongoose
+
+npm i passport passport-local
+
+# -----------------------PassportJS 끝-----------------------
