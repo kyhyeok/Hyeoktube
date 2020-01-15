@@ -349,4 +349,14 @@ npm i passport passport-local
 
 npm install express-session
 
+express에서 session을 사용할 수 있게 도와주는
+
 # -----------------------express session 끝-----------------------
+
+# -----------------------connect-mongo 시작-----------------------
+
+npm i install connect-mongo
+
+session에 쿠키는 담는 역학이다
+
+# -----------------------connect-mongo 끝-----------------------
