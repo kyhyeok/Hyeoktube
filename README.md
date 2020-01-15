@@ -347,4 +347,6 @@ npm i passport passport-local
 
 # -----------------------express session 시작-----------------------
 
+npm install express-session
+
 # -----------------------express session 끝-----------------------
