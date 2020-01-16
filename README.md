@@ -355,8 +355,30 @@ express에서 session을 사용할 수 있게 도와주는
 
 # -----------------------connect-mongo 시작-----------------------
 
-npm i install connect-mongo
+npm install connect-mongo
 
 session에 쿠키는 담는 역학이다
 
 # -----------------------connect-mongo 끝-----------------------
+
+# -----------------------github Login 시작-----------------------
+
+npm install passport-github
+
+github홈페이지 -> 개발자페이지 application등록 해야한다. (OAuth Apps)
+
+Authorization callback URL이 포인트
+
+생성하면 ID와 PW를 제공하는데 이거는 절대 비밀이다
+
+arg가 순서대로 여러가지가 있을 경우네 순서가 어긋나면 안된다.
+
+function test(1,2,3,4){} | 다만 첫 번째, 두 번째 사용을 안하고 세 번째를 사용하고 싶을 경우
+
+function test(\_, \_\_, 3, 4)를 해야지 function test(3,4)하면 에러가 난다 || _가 자동으로 \_로 저장 됌
+
+github email이 public이나 아니냐 때문에 에러가 났다. 각 사이트바다 이메일을 보내는 방식이든
+
+아이디를 통한 로그인 방식이든 application과의 보안 혹은 공유범위에 따라 에러가 날 수도 있다
+
+# -----------------------github Login 끝-----------------------
