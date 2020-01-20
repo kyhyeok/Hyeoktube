@@ -129,6 +129,35 @@ export const postKakaoLogin = (req, res) => {
   res.redirect(routes.home);
 };
 
+export const NaverLogin = passport.authenticate("naver");
+
+export const NaverLoginCallback = async (_,__,profile,cb) => {
+  const {
+    _json: { id, profile_image: avatarUrl, nickname: name, email }
+  } = profile;
+  try {
+    const user = await User.findOne({ email });
+    if (user) {
+      user.githubId = id;
+      user.save();
+      return cb(null, user);
+    }
+    const newUser = await User.create({
+      email,
+      name,
+      githubId: id,
+      avatarUrl
+    });
+    return cb(null, newUser);
+  } catch (error) {
+    return cb(error);
+  }
+}
+
+export const postNaverLogin = (req, res) => {
+  res.redirect(routes.home);
+};
+
 export const logout = (req, res) => {
   req.logout();
   res.redirect(routes.home);

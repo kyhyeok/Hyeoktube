@@ -14,7 +14,9 @@ import {
   facebookLogin,
   postFacebookLogin,
   kakaoLogin,
-  postKakaoLogin
+  postKakaoLogin,
+  NaverLogin,
+  postNaverLogin
 } from "../controllers/userController";
 import { onlyPublic, onlyPrivate } from "../middlewares";
 
@@ -56,6 +58,15 @@ globalRouter.get(
     failureRedirect: "/login"
   }),
   postKakaoLogin
+ );
+
+globalRouter.get(routes.naver, NaverLogin);
+globalRouter.get(
+  routes.naverCallback,
+  passport.authenticate("naver", {
+    failureRedirect: "/login"
+  }),
+  postNaverLogin
  );
 
  globalRouter.get(routes.me, getMe);
