@@ -102,8 +102,27 @@ export const postFacebookLogin = (req, res) => {
 
 export const kakaoLogin = passport.authenticate("kakao");
 
-export const kakaoLoginCallback = (accessToken,refreshToken,profile,cb) => {
-  console.log(accessToken,refreshToken,profile,cb)
+export const kakaoLoginCallback = async (_,__,profile,cb) => {
+  const {
+    _json: { id, name, email }
+  } = profile;
+  try {
+    const user = await User.findOne({ email });
+    if (user) {
+      user.kakaoId = id;
+      user.save();
+      return cb(null, user);
+    }
+    const newUser = await User.create({
+      email,
+      name,
+      kakaoId: id,
+      avatarUrl
+    });
+    return cb(null, newUser);
+  } catch (error) {
+    return cb(error);
+  }
 }
 
 export const postKakaoLogin = (req, res) => {
