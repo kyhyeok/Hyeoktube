@@ -102,9 +102,9 @@ export const postFacebookLogin = (req, res) => {
 
 export const kakaoLogin = passport.authenticate("kakao");
 
-export const kakaoLoginCallback = async (_,__,profile,cb) => {
+export const kakaoLoginCallback = async (_, __, profile, cb) => {
   const {
-    _json: { id, name, email }
+    _json: { id, name, avatarUrl, email }
   } = profile;
   try {
     const user = await User.findOne({ email });
@@ -123,7 +123,7 @@ export const kakaoLoginCallback = async (_,__,profile,cb) => {
   } catch (error) {
     return cb(error);
   }
-}
+};
 
 export const postKakaoLogin = (req, res) => {
   res.redirect(routes.home);
@@ -131,7 +131,7 @@ export const postKakaoLogin = (req, res) => {
 
 export const NaverLogin = passport.authenticate("naver");
 
-export const NaverLoginCallback = async (_,__,profile,cb) => {
+export const NaverLoginCallback = async (_, __, profile, cb) => {
   const {
     _json: { id, profile_image: avatarUrl, nickname: name, email }
   } = profile;
@@ -152,7 +152,7 @@ export const NaverLoginCallback = async (_,__,profile,cb) => {
   } catch (error) {
     return cb(error);
   }
-}
+};
 
 export const postNaverLogin = (req, res) => {
   res.redirect(routes.home);
@@ -181,7 +181,25 @@ export const userDetail = async (req, res) => {
   }
 };
 
-export const editProfile = (req, res) =>
+export const getEditProfile = (req, res) =>
   res.render("editProfile", { pageTitle: "Edit Profile" });
+
+export const postEditProfile = async (req, res) => {
+  const {
+    body: { name, email },
+    file
+  } = req;
+  try {
+    await User.findByIdAndUpdate(req.user.id, {
+      name,
+      email,
+      avatarUrl: file ? file.path : req.user.avatarUrl
+    });
+    res.redirect(routes.me);
+  } catch (error) {
+    res.render("editProfile", { pageTitle: "Edit Profile" });
+  }
+};
+
 export const changePassword = (req, res) =>
   res.render("changePassword", { pageTitle: "Change Password" });
