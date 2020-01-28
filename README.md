@@ -434,7 +434,7 @@ npm install -g ngrok설치 후 ngrok http 4000으로 하니까 됌
 
 RequestFullscreen(), exitFullscreen()이 제대로 안 먹힘
 
-그렇기 때문에 webkit, mos, ms라는 브라우저마다의 고유값을 입력했어야 함
+그렇기 때문에 webkit, moz, ms라는 브라우저마다의 고유값을 입력했어야 함
 
 오류가 나지만 되는 부류가 있고 아에 안되는 부류가 있다 ㅜㅜ
 
