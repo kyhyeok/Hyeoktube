@@ -5,6 +5,8 @@ const volumeBtn = document.querySelector("#jsVolumeBtn");
 const fullScreenBtn = document.querySelector("#jsFullScreen");
 const currentTime = document.querySelector("#currentTime");
 const totalTime = document.querySelector("#totalTime");
+const volumeRange = document.querySelector("#jsVolume");
+let volumeShape = "";
 
 function handlePlayClick() {
   if (videoPlayer.paused) {
@@ -19,8 +21,17 @@ function handlePlayClick() {
 function handleVolumeClick() {
   if (videoPlayer.muted) {
     videoPlayer.muted = false;
-    volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+    volumeBtn.innerHTML = volumeShape;
+    volumeRange.value = videoPlayer.volume;
   } else {
+    if (volumeRange.value > 0.7) {
+      volumeShape = '<i class="fas fa-volume-up"></i>';
+    } else if (volumeRange.value > 0.2) {
+      volumeShape = '<i class="fas fa-volume-down"></i>';
+    } else {
+      volumeShape = '<i class="fas fa-volume-off"></i>';
+    }
+    volumeRange.value = 0;
     videoPlayer.muted = true;
     volumeBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
   }
@@ -91,12 +102,30 @@ function handleEnded() {
   playBtn.innerHTML = '<i class="fas fa-play"></i>';
 }
 
+// 현재 볼륨값은 여기가 기억을 한다.
+function handleDrag(event) {
+  const {
+    target: { value }
+  } = event;
+  videoPlayer.volume = value;
+  if (value > 0.7) {
+    volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+  } else if (value > 0.2) {
+    volumeBtn.innerHTML = '<i class="fas fa-volume-down"></i>';
+  } else {
+    volumeBtn.innerHTML = '<i class="fas fa-volume-off"></i>';
+  }
+  return value;
+}
+
 function init() {
+  videoPlayer.volume = 0.5;
   playBtn.addEventListener("click", handlePlayClick);
   volumeBtn.addEventListener("click", handleVolumeClick);
   fullScreenBtn.addEventListener("click", goFullScreen);
   videoPlayer.addEventListener("loadedmetadata", setTotalTime);
   videoPlayer.addEventListener("ended", handleEnded);
+  volumeRange.addEventListener("input", handleDrag);
 }
 
 if (videoContainer) {
