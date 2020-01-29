@@ -200,7 +200,7 @@ url = MongoDB를 설치하면 보통 C:\Program Files 설치가 되고 MongoDB\S
 
 https://mongoosejs.com/ 는 몽고db를 js에서 사용할 수 있게 해주는 것
 
-npm install mongooes 몽고DB를 NodeJS에서 사용하기 위해 install
+npm install mongooes 몽고DB를 NodeJS에서 사용하기 위해 install해야 한다
 
 use hyeok-tube (내 데이터베이스 이름 | 본인이 확인하고 싶은 데이터베이스 명을 use + 입력해야한다.)
 
