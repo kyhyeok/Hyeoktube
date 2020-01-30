@@ -35,6 +35,11 @@ const KAKAO_CALLBACK = "/oauth/kakao/callback";
 const NAVER = "/auth/naver";
 const NAVER_CALLBACK = "/auth/naver/callback";
 
+// API
+
+const API = "/api";
+const REGISTER_VIEW = "/:id/view";
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -78,7 +83,9 @@ const routes = {
   kakaoCallback: KAKAO_CALLBACK,
   naver: NAVER,
   naverCallback: NAVER_CALLBACK,
-  me: ME
+  me: ME,
+  api: API,
+  registerView: REGISTER_VIEW
 };
 
 export default routes;
