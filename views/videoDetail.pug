@@ -28,9 +28,16 @@ block content
                     span.video__comment-number
                         span#jsCommentNumber #{video.comments.length} 
                         | comments 
-                form.add__comment#jsAddComment
-                    input(type="text", placeholder="Add a comment")
-                ul.video__comments-list#jsCommentList
+                if loggedUser
+                    form.add__comment#jsAddComment
+                        input(type="text", placeholder="Add a comment")
+                div.video__comments-list#jsCommentList
                     each comment in video.comments.reverse()
-                        li
-                            span=comment.text
+                        div
+                            div
+                                span.jsCommentInput=comment.text
+                            div
+                                if loggedUser && comment.creator == loggedUser.id
+                                    span.jsCommentEdit(data-commentId=comment._id) ✏️
+                                    span.jsCommentDelete ❌
+                        
