@@ -156,9 +156,11 @@ const sendDeleteComment = async deleteCommentId => {
 };
 
 const handleDeleteComment = event => {
-  const deleteCommentId = event.target.dataset.commentid;
-  event.target.parentElement.parentElement.remove();
-  sendDeleteComment(deleteCommentId);
+  if (confirm("댓글을 삭제하시겠습니까?")) {
+    const deleteCommentId = event.target.dataset.commentid;
+    event.target.parentElement.parentElement.remove();
+    sendDeleteComment(deleteCommentId);
+  }
 };
 
 function init() {
