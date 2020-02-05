@@ -10,6 +10,11 @@ const increaseNumber = () => {
   commentNumber.innerHTML = parseInt(commentNumber.innerHTML, 10) + 1;
 };
 
+// MinusComment
+const decreaseNumber = () => {
+  commentNumber.innerHTML = parseInt(commentNumber.innerHTML, 10) - 1;
+};
+
 function addComment(comment) {
   const div = document.createElement("div");
   const divFirstChild = document.createElement("div");
@@ -59,7 +64,7 @@ const editCommentUI = (editCommentValue, editCommentId, editFormElement) => {
   const editSpan = parentDiv.nextElementSibling.firstElementChild;
   editSpan.innerHTML = "✏️";
   const span = document.createElement("span");
-  span.setAttribute("class", "jsCommentInput");
+  span.setAttribute("class", "jsCommentSpan");
   span.textContent = editCommentValue;
   parentDiv.prepend(span);
 };
@@ -125,6 +130,7 @@ const changeComment = event => {
   // input에 기존 댓글 삽입
   commentParent.firstElementChild.firstElementChild.value = commentText;
 
+  // form태그 submit 이벤트 걸기
   commentParent
     .querySelector("form")
     .addEventListener("submit", handelEditSubmit);
@@ -136,7 +142,24 @@ const handleEditComment = event => {
 
 // document.querySelector(".jsCommentEdit").parentElement.parentElement.firstElementChild.firstElementChild
 
-const handleDeleteComment = () => {};
+const sendDeleteComment = async deleteCommentId => {
+  const response = await axios({
+    url: `/api/${deleteCommentId}/deleteComment`,
+    method: "POST",
+    data: {
+      deleteCommentId
+    }
+  });
+  if (response.status === 200) {
+    decreaseNumber();
+  }
+};
+
+const handleDeleteComment = event => {
+  const deleteCommentId = event.target.dataset.commentid;
+  event.target.parentElement.parentElement.remove();
+  sendDeleteComment(deleteCommentId);
+};
 
 function init() {
   addCommentForm.addEventListener("submit", handleSubmit);

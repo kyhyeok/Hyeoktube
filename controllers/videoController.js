@@ -103,7 +103,7 @@ export const deleteVideo = async (req, res) => {
   } = req;
   try {
     const video = await Video.findById(id);
-    if (video.creator !== req.user.id) {
+    if (video.creator != req.user.id) {
       throw Error();
     } else {
       await Video.findOneAndRemove({ _id: id });
@@ -164,6 +164,25 @@ export const postEditComment = async (req, res) => {
   } = req;
   try {
     await Comment.findOneAndUpdate({ _id: id }, { text: editCommentValue });
+  } catch (error) {
+    res.status(400);
+  } finally {
+    res.end();
+  }
+};
+
+// Delete Comment
+export const postDeleteComment = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  try {
+    const comment = await Comment.findById(id);
+    if (comment.creator != req.user.id) {
+      throw Error();
+    } else {
+      await Comment.findOneAndRemove({ _id: id });
+    }
   } catch (error) {
     res.status(400);
   } finally {
