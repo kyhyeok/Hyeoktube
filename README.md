@@ -511,3 +511,61 @@ try {
 }
 
 # -----------------------try catch finally 끝-----------------------
+
+# -----------------------AWS 시작-----------------------
+
+aws amazon 검색
+
+회원가입 후 완전 회원가입??을 클릭 하면
+
+전문가와 그냥이나오는데 public을 선택 후 정보 입력하고 next
+
+그럼 신용카드 입력란이 있는데 입력하고 next하면 1달라가 차감된다고 문자가 오지만
+
+실제로는 차감이 되지 않는다.(본인인지 확인용) next
+
+이용료가 나오는데 free로 하면 공짜이다.
+
+이 과정을 해야 완전한 회원가입??이 되서 이용이 가능하다
+
+service에서 Storage -> S3 클릭후 버켓 생선한다.
+
+우리는 public한 홈페이지니까 public을 한다.
+
+처음 만들때 Block을 전부 off하거나 이름 클릭 -> Permissions에서 Block을 전부 해제해도 된다.
+
+Access Control List -> Public access -> Everyone -> 전부 체크하고 save
+
+다시 Service -> S3에 가면 Bucket name 옆 Access가 Public으로 바뀌어 있다.
+
+(2020-02-05 언제든지 바뀔 수 있다. 강의 내용시점과 현 시점도 달랐다)
+
+이 과정이 마무리되면
+
+Security, Identity, & Compliance -> IAM -> Users -> Add User
+
+User name은 알아서 입력하고
+
+Programmatic access와 Programmatic access이 있는데
+
+Programmatic access은 프로그램이 사용
+
+Programmatic access은 사람이 사용해서 자료를 변경할 수 있다 (password방식)
+
+Programmatic access 선택 후 next
+
+Attach existing policies directly -> s3 검색 -> AmazonS3FullAccess 클릭 next:Tags -> Add Tags(공란) next:Review -> Create user
+
+(AmazonS3FullAccess는 유저가 Amazon S3에서 다 볼수 있다. 즉 무엇이든 할 수 있다)
+
+Access key ID와 Secret access key가 나온다
+
+이 페이지를 한 번 나가면 다시는 접근할 수가 없다
+
+비밀리에 두개의 키 값을 보관해야 한다.
+
+npm install asw-sdk multer-s3를 설치하면 기본세팅이 끝
+
+npm install A B C 하면 ABC 차례로 install 된다.
+
+# -----------------------AWS 끝-----------------------
