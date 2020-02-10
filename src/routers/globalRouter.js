@@ -37,7 +37,9 @@ globalRouter.get(routes.gitHub, githubLogin);
 globalRouter.get(
   routes.githubCallback,
   passport.authenticate("github", {
-    failureRedirect: "/login"
+    failureRedirect: "/login",
+    successFlash: "Welcome with github",
+    failureFlash: "Can't log in through github at this time"
   }),
   postGithubLogIn
 );
@@ -46,7 +48,9 @@ globalRouter.get(routes.facebook, facebookLogin);
 globalRouter.get(
   routes.facebookCallback,
   passport.authenticate("facebook", {
-    failureRedirect: "/login"
+    failureRedirect: "/login",
+    successFlash: "Welcome with facebook",
+    failureFlash: "Can't log in through facebook at this time"
   }),
   postFacebookLogin
  );
@@ -55,7 +59,9 @@ globalRouter.get(routes.kakao, kakaoLogin);
 globalRouter.get(
   routes.kakaoCallback,
   passport.authenticate("kakao", {
-    failureRedirect: "/login"
+    failureRedirect: "/login",
+    successFlash: "Welcome with kakao",
+    failureFlash: "Can't log in through kakao at this time"
   }),
   postKakaoLogin
  );
@@ -64,7 +70,9 @@ globalRouter.get(routes.naver, NaverLogin);
 globalRouter.get(
   routes.naverCallback,
   passport.authenticate("naver", {
-    failureRedirect: "/login"
+    failureRedirect: "/login",
+    successFlash: "Welcome with naver",
+    failureFlash: "Can't log in through naver at this time"
   }),
   postNaverLogin
  );

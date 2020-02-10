@@ -569,3 +569,49 @@ npm install asw-sdk multer-s3를 설치하면 기본세팅이 끝
 npm install A B C 하면 ABC 차례로 install 된다.
 
 # -----------------------AWS 끝-----------------------
+
+# -----------------------get-blob-duration 시작-----------------------
+
+npm install get-blob-duration
+
+비디오 영상 길이데이터를 제대로 가져오지 못 할때 쓰는 라이브러리
+
+# -----------------------get-blob-duration 끝-----------------------
+
+# -----------------------mongolab 시작-----------------------
+
+https://mlab.com 에 접속
+
+이거 잘 모르겠음 아이디가 자꾸 있다고 해서 수업 듣기만 하고 코딩 안함
+
+# -----------------------mongolab 끝-----------------------
+
+# -----------------------building for Production 시작-----------------------
+
+npm install --save @babel/cli 한 후
+
+package.json에
+
+"build:server" : "babel src -- out-dir build --ignore 'src/assets', 'src/static', src/webpack.config.js"  추가
+
+"dev:assets": "cd src && cross-env WEBPACK_ENV=development webpack -w" 수정
+
+"build:assets": "cd src && WEBPACK_ENV=production webpack" 수정
+
+"copyAll": "cp -R src/static build && cp -R src/views build" 추가
+
+"build": "npm run build:server && npm run build:assets && npm run copyAll" 추가
+
+src폴더를 만든 후 node_modules, babelrc, env, eslintrc, gitignore, package-lock, package, readme
+
+제외한 파일을 전부 src폴더에 넣는다
+
+gitignore에 build추가 한다
+
+# -----------------------building for Production 끝-----------------------
+
+# -----------------------express flash 시작-----------------------
+
+npm install express-flash
+
+# -----------------------express flash 끝-----------------------

@@ -5,6 +5,7 @@
   "main": "index.js",
   "author": "Hyeok",
   "dependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.7.7",
     "@babel/node": "^7.7.7",
     "@babel/polyfill": "^7.8.3",
@@ -20,8 +21,10 @@
     "css-loader": "^3.4.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-flash": "0.0.2",
     "express-session": "^1.17.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "flash": "^1.1.0",
     "helmet": "^3.21.2",
     "mongoose": "^5.8.5",
     "morgan": "^1.9.1",
@@ -43,10 +46,15 @@
     "webpack-cli": "^3.3.10"
   },
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore '.scss' --ignore 'sattic' ",
-    "dev:assets": "cross-env WEBPACK_ENV=development webpack -w",
-    "build:assets": "WEBPACK_ENV=production webpack",
-    "tunnel": "ngrok http 4000"
+    "dev:server": "nodemon --exec babel-node src/init.js --delay 2 --ignore '.scss' --ignore 'static' ",
+    "dev:assets": "cd src && cross-env WEBPACK_ENV=development webpack -w",
+    "build:assets": "cd src && cross-env WEBPACK_ENV=production webpack",
+    "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js' ",
+    "copyAll": "xcopy src/view build /y",
+    "build": "npm run build:server && npm run build:assets && npm run copyAll",
+    "prebuild": "rd /Q /S build",
+    "tunnel": "ngrok http 4000",
+    "start": "node build/init.js"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
