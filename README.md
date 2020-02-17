@@ -592,13 +592,17 @@ npm install --save @babel/cli 한 후
 
 package.json에
 
-"build:server" : "babel src -- out-dir build --ignore 'src/assets', 'src/static', src/webpack.config.js"  추가
+"build:server" : "babel src -- out-dir build --ignore 'src/assets', 'src/static', src/webpack.config.js" 추가
 
 "dev:assets": "cd src && cross-env WEBPACK_ENV=development webpack -w" 수정
 
 "build:assets": "cd src && WEBPACK_ENV=production webpack" 수정
 
 "copyAll": "cp -R src/static build && cp -R src/views build" 추가
+
+위 copyAll은 맥 용이고 윈도우즈인 powershell은 다른 아래 명령어를 써야 한다.
+
+"copyAll": "xcopy .\\src\\static\\styles.css .\\build\\static\\ /s /y && xcopy .\\src\\views .\\build\\views\\ /s /y",
 
 "build": "npm run build:server && npm run build:assets && npm run copyAll" 추가
 
@@ -607,6 +611,10 @@ src폴더를 만든 후 node_modules, babelrc, env, eslintrc, gitignore, package
 제외한 파일을 전부 src폴더에 넣는다
 
 gitignore에 build추가 한다
+
+npm run build "&&" npm start
+
+이것은 npm run build 이후 npm start를 바로 시작하고 싶을때 사용하는 방법
 
 # -----------------------building for Production 끝-----------------------
 
